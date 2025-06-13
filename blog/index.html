@@ -15,7 +15,7 @@
         <link rel="next" href="category/cli/">
       
       
-      <link rel="icon" href="../images/solid/chart-line.svg">
+      <link rel="icon" href="../images/rigidlab.svg">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
     
     
@@ -107,7 +107,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="Rigid Lab" class="md-header__button md-logo" aria-label="Rigid Lab" data-md-component="logo">
       
-  <img src="../images/solid/chart-line.svg" alt="logo">
+  <img src="../images/rigidlab.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -278,7 +278,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Rigid Lab" class="md-nav__button md-logo" aria-label="Rigid Lab" data-md-component="logo">
       
-  <img src="../images/solid/chart-line.svg" alt="logo">
+  <img src="../images/rigidlab.svg" alt="logo">
 
     </a>
     Rigid Lab
@@ -454,6 +454,8 @@
       
         
       
+        
+      
     
     
       
@@ -499,6 +501,29 @@
   
   
     <li class="md-nav__item">
+      <a href="archive/2025/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2025
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
       <a href="archive/2024/" class="md-nav__link">
         
   
@@ -529,6 +554,8 @@
   
     
     
+      
+        
       
         
       
@@ -666,6 +693,29 @@
 
               
             
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="category/ros/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ROS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -713,6 +763,79 @@
       <header class="md-typeset">
         <h1 id="blog">Blog</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-06-12 00:00:00">June 12, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="category/ros/" class="md-meta__link">ROS</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              3 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="the-evolving-landscape-of-ros-visualization"><a class="toclink" href="2025/06/12/the-evolving-landscape-of-ros-visualization/">The Evolving Landscape of ROS Visualization</a></h2>
+<p>When I first started working with ROS back in 2018, I was just getting my feet wet in the world of mobile robotics. ROS has been around since 2011. Since then, <a href="https://wiki.ros.org/rviz">RViz</a> was the de facto 3D visualization tool, and <a href="https://wiki.ros.org/rqt_plot"><code>rqt_plot</code></a> was the go-to option for visualizing time series data from ROS topics. These tools were essential, if somewhat limited.</p>
+<p>Fast forward to 2025, and the ROS visualization ecosystem has come a long way. Over the years, we’ve seen several visualization tools enter the space—some enduring, some fading away. One notable effort was <a href="https://github.com/cruise-automation/webviz">Webviz</a> by Cruise Automation, an open-source web-based visualizer for ROS bag files. Although Webviz offered a modern interface and browser-based convenience, <strong>active development was discontinued</strong> after Cruise shifted focus around 2021–2022 (<a href="https://github.com/cruise-automation/webviz/commits/master">source</a>). The GitHub repository remains available, but it is <strong>effectively unmaintained</strong>.</p>
+<p>On the other hand, <a href="https://github.com/facontidavide/PlotJuggler">PlotJuggler</a> has remained a reliable tool for introspecting ROS data. It supports dynamic message parsing, real-time plotting, and flexible drag-and-drop layouts for time series inspection. It's still under <strong>active development</strong> and often integrated into real-world robot debugging workflows.</p>
+<p>Then came <a href="https://foxglove.dev/">Foxglove Studio</a>—a cross-platform, modern visualization tool inspired by Webviz. Released in 2021, Foxglove Studio supports live data streaming and ROS bag playback, and provides powerful extensibility via plugins and custom panels. It works with both <strong>ROS 1 and ROS 2</strong>, making it a popular choice in today’s hybrid robotic stacks (<a href="https://github.com/foxglove/studio">GitHub</a>).</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RViz</td>
+<td>Open source, ROS-native, 3D capable</td>
+<td>Requires <code>roscore</code>; not ideal for offline bag inspection</td>
+</tr>
+<tr>
+<td>Webviz</td>
+<td>Browser-based, open-source, intuitive UI</td>
+<td>No longer actively maintained by Cruise</td>
+</tr>
+<tr>
+<td>PlotJuggler</td>
+<td>Dynamic message parsing, flexible layouts</td>
+<td>UI can be overwhelming for new users</td>
+</tr>
+<tr>
+<td>Foxglove</td>
+<td>Web-native, cross-platform, ROS 1 &amp; 2 support</td>
+<td>Some features gated behind cloud services or setup overhead</td>
+</tr>
+</tbody>
+</table>
+<p>Between 2018 and 2025, as someone working on real-world robotics systems, <strong>visualizing ROS bags at scale</strong> has remained a tough challenge. At the end of the day, do you have enough human hours to manually inspect 10, 100, or even 1,000 bag files?</p>
+<p>Some may argue that automation is the answer: write code to flag issues programmatically. And while that’s partially true, the reality is that <strong>you often need to see the problem first</strong> before you can define it well enough to detect it automatically. This is where visualization remains indispensable.</p>
+<p>You don't want your most skilled developers spending time manually reviewing every bag file. Investigating visual anomalies—like odd navigation behavior or sensor glitches—is something the human eye excels at. Sure, AI can help here, but <strong>training those models still requires significant human input</strong>.</p>
+<p>While large language models benefit from vast, general-purpose datasets, robotics data is much more domain-specific. It often requires specialists to label and annotate correctly, especially for nuanced behaviors that only an experienced engineer would recognize.</p>
+<p>To support my personal learning—and to help tackle this problem at scale—I decided to build a custom, static visualization using <a href="https://bokeh.org">Bokeh</a>, a Python-based interactive plotting library. For ground mobile robots, I’ve found that <strong>2D visualization is often sufficient</strong> for trained specialists to review and interpret the data effectively.</p>
+<p>While Bokeh doesn’t yet offer strong support for 3D visualization, its 2D rendering capabilities are both elegant and performant. It outputs pure HTML and JavaScript, enabling animations to run smoothly in-browser without requiring any backend. Even better, these HTML files are fully <strong>self-contained and portable</strong>—they can be hosted on any static web server or opened locally with just a double-click.</p>
+<p>To be continued ...</p>
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">

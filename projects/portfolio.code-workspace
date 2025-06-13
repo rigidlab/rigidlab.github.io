@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../../../toolbag"
+		},
+		{
+			"path": "../../../notebook"
+		},
+		{
+			"path": "../../../stocks"
+		},
+		{
+			"path": "../.."
+		}
+	],
+	"settings": {}
+}
