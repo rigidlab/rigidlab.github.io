@@ -1,0 +1,81 @@
+site_name: Rigid Lab
+theme:
+  name: material
+  favicon: images/rigidlab.svg
+  logo: images/rigidlab.svg
+  palette:
+    scheme: slate
+    primary: teal
+    accent: amber
+  font:
+    text: Roboto Mono
+
+  features:
+    - content.code.copy
+    # - header.autohide
+    # - navigation.expand
+    - navigation.footer
+    - navigation.indexes
+    # - navigation.instant
+    # - navigation.instant.prefetch
+    # - navigation.instant.progress
+    # - navigation.prune
+    - navigation.sections
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+
+markdown_extensions:
+  - tables
+  - attr_list
+  - md_in_html
+  - pymdownx.highlight:
+      linenums: false
+  - pymdownx.superfences:
+      custom_fences:
+      - name: mermaid
+        class: mermaid
+        format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.snippets:
+      base_path: 'docs/'
+
+nav:
+  - About: 'index.md'
+  - Projects: 
+    #- ROS: projects/ros.md
+    #- BViz: projects/bviz1.md
+    - Stocks: projects/stocks.md
+  #- Notes: 
+  #  - Cooking: notes/health/cooking.md
+  #  - UI Design: notes/design/ui.md
+  #  - Design2: notes/design/furniture.md
+  - Portfolio: portfolio/index.md
+  - Blog:
+    - blog/index.md
+
+extra:
+  analytics:
+    provider: google
+    property: G-V55C7EE2NV
+
+extra_css: 
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+# Plugins
+plugins:
+  - blog
+  - glightbox
+  - search:
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
