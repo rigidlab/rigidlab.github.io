@@ -48,10 +48,7 @@ markdown_extensions:
 
 nav:
   - About: 'index.md'
-  - Projects: 
-    #- ROS: projects/ros.md
-    #- BViz: projects/bviz1.md
-    - Stocks: projects/stocks.md
+  - Projects: projects/index.md
   #- Notes: 
   #  - Cooking: notes/health/cooking.md
   #  - UI Design: notes/design/ui.md
