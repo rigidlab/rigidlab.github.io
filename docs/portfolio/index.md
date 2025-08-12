@@ -15,9 +15,11 @@
   <source src="towed_aircraft_sim.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
-**What you're seeing**
-1. Simulation of a novel Airlaunch concept in X-Plane
-2. Automatic take off and control system using Python via UDP communication with X-Plane
+
+
+**What you're seeing**  
+1. Simulation of a novel Airlaunch concept in X-Plane  
+2. Automatic take off and control system using Python via UDP communication with X-Plane  
 
 ---
 
