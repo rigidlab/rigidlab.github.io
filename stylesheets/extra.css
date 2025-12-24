@@ -1,0 +1,11 @@
+/* Prevent tabs from collapsing too early */
+@media screen and (min-width: 600px) {
+  .md-header-nav__button.md-icon {
+    display: none;
+  }
+
+  .md-tabs {
+    display: block;
+  }
+
+}
