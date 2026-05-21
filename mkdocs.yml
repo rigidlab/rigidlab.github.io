@@ -49,13 +49,15 @@ markdown_extensions:
 nav:
   - About: 'index.md'
   - Projects: projects/index.md
-  #- Notes: 
-  #  - Cooking: notes/health/cooking.md
-  #  - UI Design: notes/design/ui.md
-  #  - Design2: notes/design/furniture.md
-  - Portfolio: portfolio/index.md
   - Blog:
     - blog/index.md
+  - Notes:
+    - notes/index.md
+    - Health:
+      - Cooking: notes/health/cooking.md
+    - Design:
+      - UI Design: notes/design/ui.md
+      - Furniture: notes/design/furniture.md
 
 extra:
   analytics:
