@@ -9,3 +9,9 @@
   }
 
 }
+
+/* Logo SVG has black strokes; invert so it's visible on black header */
+[data-md-color-primary="black"] .md-header__button.md-logo img,
+[data-md-color-primary="black"] .md-header__button.md-logo svg {
+  filter: invert(1);
+}
