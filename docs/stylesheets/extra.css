@@ -1,0 +1,24 @@
+/* The logo is Inkscape output with hard-coded black strokes, which disappear
+   against the teal header in both colour schemes. Invert it to white. */
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  filter: invert(1);
+}
+
+/* Grid card cover images: fixed height, cropped to fill, so cards with
+   different source aspect ratios (screenshot vs. photo) line up evenly. */
+.md-typeset .grid.cards > ul > li > p:first-child img,
+.md-typeset .grid.cards > ul > li > img:first-child {
+  height: 180px;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Present in markdown only so Material doesn't fall back to auto-inserting
+   the nav title as a visible <h1>; not meant to be seen or take up space. */
+.md-typeset .visually-hidden {
+  position: absolute;
+  margin: 0;
+  height: 0;
+  overflow: hidden;
+}

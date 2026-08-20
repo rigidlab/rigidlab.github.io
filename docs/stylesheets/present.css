@@ -1,0 +1,165 @@
+/* present.css - fullscreen slide mode (present.js). */
+
+.present-toggle {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 5;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 2rem;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color--light);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  font-family: var(--md-text-font-family);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.present-toggle:hover {
+  border-color: var(--md-accent-fg-color);
+  color: var(--md-accent-fg-color);
+}
+
+body.present-active {
+  overflow: hidden;
+}
+
+/* Overlay ------------------------------------------------------------ */
+
+.present {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  background: var(--md-default-bg-color);
+  outline: none;
+}
+
+.present__stage {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 3vh 5vw;
+}
+
+.present__slide[hidden] {
+  display: none;
+}
+
+.present__slide {
+  width: 100%;
+  max-width: 52rem;
+  margin: auto;
+}
+
+/* Slides carry more visual weight than the same content does in the article
+   view, so scale type up rather than restyling every element individually. */
+.present__inner {
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.present__inner > :first-child {
+  margin-top: 0;
+}
+
+.present__inner h1,
+.present__inner h2 {
+  margin-top: 0;
+  line-height: 1.25;
+}
+
+.present__inner h1 {
+  font-size: 2.2rem;
+}
+
+.present__inner h2 {
+  font-size: 1.6rem;
+}
+
+.present__inner h3 {
+  font-size: 1.1rem;
+}
+
+.present__inner img,
+.present__inner svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Control bar -------------------------------------------------------- */
+
+.present__bar {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 1.25rem;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+  background: var(--md-default-bg-color);
+}
+
+.present__progress {
+  flex: 1 1 auto;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--md-default-fg-color--lightest);
+  overflow: hidden;
+}
+
+.present__fill {
+  height: 100%;
+  background: var(--md-primary-fg-color);
+  transition: width 150ms ease;
+}
+
+.present__counter {
+  flex: 0 0 auto;
+  min-width: 4rem;
+  text-align: center;
+  font-family: var(--md-text-font-family);
+  font-size: 0.7rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--md-default-fg-color--light);
+}
+
+.present__btn {
+  flex: 0 0 auto;
+  min-width: 2.4rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 0.3rem;
+  background: transparent;
+  color: var(--md-default-fg-color);
+  font-family: var(--md-text-font-family);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.present__btn:hover:not(:disabled) {
+  border-color: var(--md-accent-fg-color);
+  color: var(--md-accent-fg-color);
+}
+
+.present__btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.present__btn--exit {
+  color: var(--md-default-fg-color--light);
+}
+
+@media print {
+  .present-toggle {
+    display: none;
+  }
+}

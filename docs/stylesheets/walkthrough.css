@@ -1,0 +1,226 @@
+/* walkthrough.css - styling for the generic step viewer (walkthrough.js). */
+
+.step-walk {
+  --sw-radius: 0.5rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: var(--sw-radius);
+  background: var(--md-default-bg-color);
+  outline: none;
+}
+
+.step-walk:focus-visible {
+  border-color: var(--md-accent-fg-color);
+  box-shadow: 0 0 0 2px var(--md-accent-fg-color--transparent);
+}
+
+.sw__title {
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--md-default-fg-color--light);
+  margin-bottom: 0.75rem;
+}
+
+/* Board -------------------------------------------------------------- */
+
+.sw__board {
+  position: relative;
+  padding: 3.5rem 0.5rem 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.sw__cells {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.4rem;
+  justify-content: center;
+  min-height: 3.2rem;
+}
+
+.sw__overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.sw__arrow {
+  fill: none;
+  stroke: var(--md-accent-fg-color);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.sw__arrow--muted {
+  stroke: var(--md-default-fg-color--light);
+  stroke-dasharray: 4 3;
+}
+
+.sw__arrowhead {
+  fill: var(--md-accent-fg-color);
+}
+
+.sw__arrow-label {
+  fill: var(--md-default-fg-color--light);
+  font-size: 0.7rem;
+  font-family: var(--md-text-font-family);
+}
+
+/* Cells -------------------------------------------------------------- */
+
+.sw-cell {
+  flex: 0 0 auto;
+  min-width: 2.75rem;
+  padding: 0.5rem 0.35rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 0.35rem;
+  background: var(--md-code-bg-color);
+  text-align: center;
+  transition: background 120ms ease, border-color 120ms ease, transform 120ms ease;
+}
+
+.sw-cell__value {
+  font-family: var(--md-code-font-family);
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.sw-cell__sub {
+  margin-top: 0.15rem;
+  font-size: 0.65rem;
+  color: var(--md-default-fg-color--light);
+}
+
+.sw-cell--pivot {
+  border-color: var(--md-accent-fg-color);
+  background: var(--md-accent-fg-color--transparent);
+}
+
+.sw-cell--active {
+  border-color: var(--md-primary-fg-color);
+  transform: translateY(-3px);
+}
+
+.sw-cell--compare {
+  border-style: dashed;
+  border-color: var(--md-primary-fg-color);
+}
+
+.sw-cell--done {
+  border-color: color-mix(in srgb, var(--md-primary-fg-color) 45%, transparent);
+  background: color-mix(in srgb, var(--md-primary-fg-color) 10%, var(--md-code-bg-color));
+}
+
+.sw-cell--muted {
+  opacity: 0.4;
+}
+
+/* Caption, code, controls -------------------------------------------- */
+
+.sw__caption {
+  min-height: 3rem;
+  margin: 0.75rem 0 0;
+  padding: 0.6rem 0.75rem;
+  border-left: 3px solid var(--md-primary-fg-color);
+  background: var(--md-default-fg-color--lightest);
+  border-radius: 0 0.3rem 0.3rem 0;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.sw__code {
+  margin: 0.75rem 0 0;
+  padding: 0.6rem 0;
+  border-radius: 0.3rem;
+  background: var(--md-code-bg-color);
+  overflow-x: auto;
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+.sw-line {
+  display: block;
+  padding: 0 0.75rem;
+  white-space: pre;
+  border-left: 3px solid transparent;
+}
+
+/* Primary rather than accent: an accent-tinted row reads like a diff deletion. */
+.sw-line--hot {
+  border-left-color: var(--md-primary-fg-color);
+  background: color-mix(in srgb, var(--md-primary-fg-color) 12%, transparent);
+}
+
+.sw-line__no {
+  display: inline-block;
+  width: 2ch;
+  margin-right: 1ch;
+  text-align: right;
+  color: var(--md-default-fg-color--lighter);
+  user-select: none;
+}
+
+.sw__controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.9rem;
+}
+
+.sw__btn {
+  flex: 0 0 auto;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 0.3rem;
+  background: transparent;
+  color: var(--md-default-fg-color);
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.sw__btn:hover:not(:disabled) {
+  border-color: var(--md-accent-fg-color);
+  color: var(--md-accent-fg-color);
+}
+
+.sw__btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.sw__progress {
+  flex: 1 1 auto;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--md-default-fg-color--lightest);
+  overflow: hidden;
+}
+
+.sw__bar {
+  height: 100%;
+  background: var(--md-primary-fg-color);
+  transition: width 150ms ease;
+}
+
+.sw__counter {
+  flex: 0 0 auto;
+  font-size: 0.7rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--md-default-fg-color--light);
+}
+
+.sw__error {
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.3rem;
+  background: var(--md-code-bg-color);
+  color: var(--md-default-fg-color--light);
+  font-size: 0.75rem;
+}

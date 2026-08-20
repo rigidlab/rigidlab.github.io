@@ -1,0 +1,42 @@
+---
+date:
+  created: 2025-06-12
+categories:
+  - Robotics
+tags:
+  - Robotics
+  - ROS
+---
+
+# The Evolving Landscape of ROS Visualization
+
+When I first started working with ROS back in 2018, I was just getting my feet wet in the world of mobile robotics. ROS has been around since 2011. Since then, [RViz](https://wiki.ros.org/rviz) was the de facto 3D visualization tool, and [`rqt_plot`](https://wiki.ros.org/rqt_plot) was the go-to option for visualizing time series data from ROS topics. These tools were essential, if somewhat limited.
+
+<!-- more -->
+
+Fast forward to 2025, and the ROS visualization ecosystem has come a long way. Over the years, we’ve seen several visualization tools enter the space—some enduring, some fading away. One notable effort was [Webviz](https://github.com/cruise-automation/webviz) by Cruise Automation, an open-source web-based visualizer for ROS bag files. Although Webviz offered a modern interface and browser-based convenience, **active development was discontinued** after Cruise shifted focus around 2021–2022 ([source](https://github.com/cruise-automation/webviz/commits/master)). The GitHub repository remains available, but it is **effectively unmaintained**.
+
+On the other hand, [PlotJuggler](https://github.com/facontidavide/PlotJuggler) has remained a reliable tool for introspecting ROS data. It supports dynamic message parsing, real-time plotting, and flexible drag-and-drop layouts for time series inspection. It's still under **active development** and often integrated into real-world robot debugging workflows.
+
+Then came [Foxglove Studio](https://foxglove.dev/)—a cross-platform, modern visualization tool inspired by Webviz. Released in 2021, Foxglove Studio supports live data streaming and ROS bag playback, and provides powerful extensibility via plugins and custom panels. It works with both **ROS 1 and ROS 2**, making it a popular choice in today’s hybrid robotic stacks ([GitHub](https://github.com/foxglove/studio)).
+
+| Tool        | Pros                                             | Cons                                                  |
+|-------------|--------------------------------------------------|-------------------------------------------------------|
+| RViz        | Open source, ROS-native, 3D capable              | Requires `roscore`; not ideal for offline bag inspection |
+| Webviz      | Browser-based, open-source, intuitive UI         | No longer actively maintained by Cruise              |
+| PlotJuggler | Dynamic message parsing, flexible layouts        | UI can be overwhelming for new users                 |
+| Foxglove    | Web-native, cross-platform, ROS 1 & 2 support    | Some features gated behind cloud services or setup overhead |
+
+Between 2018 and 2025, as someone working on real-world robotics systems, **visualizing ROS bags at scale** has remained a tough challenge. At the end of the day, do you have enough human hours to manually inspect 10, 100, or even 1,000 bag files?
+
+Some may argue that automation is the answer: write code to flag issues programmatically. And while that’s partially true, the reality is that **you often need to see the problem first** before you can define it well enough to detect it automatically. This is where visualization remains indispensable.
+
+You don't want your most skilled developers spending time manually reviewing every bag file. Investigating visual anomalies—like odd navigation behavior or sensor glitches—is something the human eye excels at. Sure, AI can help here, but **training those models still requires significant human input**.
+
+While large language models benefit from vast, general-purpose datasets, robotics data is much more domain-specific. It often requires specialists to label and annotate correctly, especially for nuanced behaviors that only an experienced engineer would recognize.
+
+To support my personal learning—and to help tackle this problem at scale—I decided to build a custom, static visualization using [Bokeh](https://bokeh.org), a Python-based interactive plotting library. For ground mobile robots, I’ve found that **2D visualization is often sufficient** for trained specialists to review and interpret the data effectively.
+
+While Bokeh doesn’t yet offer strong support for 3D visualization, its 2D rendering capabilities are both elegant and performant. It outputs pure HTML and JavaScript, enabling animations to run smoothly in-browser without requiring any backend. Even better, these HTML files are fully **self-contained and portable**—they can be hosted on any static web server or opened locally with just a double-click.
+
+To be continued ...
