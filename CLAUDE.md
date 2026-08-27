@@ -2,8 +2,10 @@ MkDocs Material static site. Source in `docs/`, config in `mkdocs.yml`.
 
 ## Structure
 - `docs/blog/posts/<slug>/index.md` — blog posts (MkDocs blog plugin)
-- `docs/projects/posts/<slug>/index.md` — portfolio entries (second blog plugin instance)
-- Each post is a folder so its images sit next to it and are referenced by bare filename
+- `docs/projects/index.md` is a single scrolling page — one `##` section per
+  project, written directly in that file (not the blog plugin)
+- `docs/projects/posts/<slug>/` still holds each project's images, referenced
+  from `projects/index.md` as `posts/<slug>/<file>`
 - `docs/stylesheets/` — `extra.css` (site tweaks), plus `present.css`, `walkthrough.css`
 - `docs/javascripts/` — `mathjax.js` (math config), `present.js` (slide mode),
   `walkthrough.js` (step viewer)
@@ -12,19 +14,20 @@ MkDocs Material static site. Source in `docs/`, config in `mkdocs.yml`.
 Home | Projects | Blog
 
 ## Key config
-- Two `blog` plugin instances: one for `blog/`, one for `projects/`
-- `projects/` blog uses `post_url_format: "{slug}"` and no archive
-- `blog/` uses `post_url_format: "{date}/{slug}"` with archive
+- One `blog` plugin instance, for `blog/`, using `post_url_format: "{date}/{slug}"`
+  with archive. `projects/` is a single hand-written page, not managed by the
+  blog plugin.
 - Post URLs derive from the H1 title, not the folder name
 - Google Analytics: G-V55C7EE2NV
 - MathJax via `extra_javascript`
 - glightbox plugin for image lightboxes
 
-## Writing a post
+## Writing a blog post
 Front matter needs `date.created` and `categories`. Put a `<!-- more -->` after
 the opening paragraph — without it the blog index renders the entire post
 instead of an excerpt. `draft: true` keeps a post off the built site while still
-showing it under `mkdocs serve`.
+showing it under `mkdocs serve`. New projects are added as a `##` section in
+`docs/projects/index.md`, no blog front matter needed.
 
 Unfinished posts live in `backup/drafts/{blog,projects}/<slug>/`, outside
 `docs/` so MkDocs never sees them at all. Move a folder back under `docs/` to
@@ -44,6 +47,10 @@ is hidden on blog/archive/category listings and on pages with no `##`.
 Writing implication: short sections with one idea each present well and read
 well; a wall of prose makes a poor slide.
 
+Opt a page out even if it has `##`s (e.g. `##` used just for section breaks,
+not slide-worthy content) by tagging any element with `.no-present`, e.g.
+`# Heading {: .no-present }`.
+
 ### Step walkthroughs
 `walkthrough.js` renders chess-style steppers from hand-written JSON in
 `docs/data/`. Embed with `<div class="step-walk" data-name="<name>"></div>`.
@@ -56,4 +63,4 @@ well; a wall of prose makes a poor slide.
   Requires *Settings → Pages → Source: GitHub Actions*; the `gh-pages` branch is
   no longer the source.
 - `mkdocs` is pinned below 2.0, which removes the plugin and theming systems
-  with no migration path — both `blog` instances and `glightbox` depend on it.
+  with no migration path — the `blog` and `glightbox` plugins depend on it.

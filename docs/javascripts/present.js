@@ -255,12 +255,15 @@
 
   /* Blog index, archive and category pages are generated lists of other posts,
    * not writing of their own - the blog plugin marks each entry on them with
-   * .md-post--excerpt. A page also has to split into more than a title slide,
-   * which means at least one <h2>. */
+   * .md-post--excerpt. Pages can also opt out directly by putting .no-present
+   * on any element (e.g. `# Heading {: .no-present }`) - used for pages whose
+   * <h2>s are just section breaks, not slide-worthy content. A page also has
+   * to split into more than a title slide, which means at least one <h2>. */
   function isPresentable() {
     var container = document.querySelector(CONTENT);
     if (!container) return false;
     if (container.querySelector(".md-post--excerpt")) return false;
+    if (container.querySelector(".no-present")) return false;
     return !!container.querySelector("h2");
   }
 

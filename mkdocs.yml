@@ -1,8 +1,6 @@
 site_name: rigidlab
 site_description: Robotics, simulation, and things I build to understand a problem better
 site_url: https://rigidlab.github.io/
-repo_url: https://github.com/rigidlab/rigidlab.github.io
-edit_uri: ""
 theme:
   name: material
   favicon: media/rigidlab.svg
@@ -100,14 +98,6 @@ plugins:
       categories: true
       categories_name: Topics
       archive: true
-  - blog:
-      blog_dir: projects
-      blog_toc: true
-      post_url_format: "{slug}"
-      pagination: true
-      categories: true
-      categories_name: Topics
-      archive: false
   - glightbox
   - search:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'

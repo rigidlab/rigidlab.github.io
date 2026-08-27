@@ -4,27 +4,31 @@ hide:
 ---
 
 # rigidlab {: .visually-hidden }
-
-What I'm working on:
-
+Highlights:
 <div class="grid cards" markdown>
 
 -   ![qtxterm](projects/posts/qtxterm/screenshot.png)
 
     ---
 
-    **[qtxterm](projects/posts/qtxterm/index.md)**
+    **[qtxterm](projects/index.md#qtxterm)**
 
-    Cross-platform tabbed terminal built with Qt(PySide6) and xterm.js.
+    Cross-platform terminal built with Qt(PySide6) and xterm.js.
 
 -   ![wanderlust](projects/posts/wanderlust/cover.jpg)
 
     ---
 
-    **[wanderlust](projects/posts/wanderlust/index.md)**
+    **[wanderlust](projects/index.md#wanderlust)**
 
     A photobook of my hiking trips, built with Astro.
 
-</div>
+-   ![Towed Aircraft Simulation](projects/posts/xplane/towed_aircraft_sim.png)
 
-[Blog](blog/index.md)
+    ---
+
+    **[Towed Aircraft Simulation](projects/index.md#towed-aircraft-simulation)**
+
+    Airlaunch concept simulated in X-Plane, flown by a Python autopilot over UDP.
+
+</div>
